@@ -1,0 +1,46 @@
+{% extends 'index.html' %}
+
+
+{% block body %}
+<br /><br /><br />
+
+    
+    
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">product</th>
+      <th scope="col">qty</th>
+      <th scope="col">price</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in data %}
+    
+    <tr>
+    <td>{{ row.productid.name }}</td>
+    <td>{{ row.qty }}
+    </td>
+    <td>$100</td>
+    </tr>
+    {% endfor %}
+     <tfoot>
+  <td>Total Price</td>
+    <td></td>
+    <td id='total'>$100</td>
+  </tfoot>
+  </tbody>
+</table>
+
+{% endblock %}
+{% block script %}
+$(document).ready(()=>{
+    var sum=0;
+    
+        {% for row in data %}
+        sum=sum + {{ row.qty }};
+        {% endfor %}
+    $('#total').html('$'+sum*100);
+    
+    })
+{% endblock %}

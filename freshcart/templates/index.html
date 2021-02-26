@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+{% load static %}
+    <title>products!</title>
+    <style>
+        .nav-name{
+            font-family: Sans-Serif;
+        }
+    </style>
+  </head>
+  <body>
+    <div class=" container-fluid">
+  <!--- Navigation -->
+    <style>
+        .dropdown:hover>.dropdown-menu {
+            display: block;
+        }
+ 
+        .accicon {
+            position: relative;
+            right: 5px;
+        }
+ 
+        .acclogoimg {
+            width: 30px;
+            height: 30px;
+        }
+    </style>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" data-spy="affix" data-offset-top="197">
+        <div class="container-fluid">
+            <a class="navbar-brand nav-name" href="index.php"><img src="{% static 'logoWeb.png' %}" width="50" height="45"> Green Fresh</a><button class="navbar-toggler" data-target="#navbarResponsive" data-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active text-light nav-name" href="{% url 'addcart' %}"><img src="{% static 'cart.png' %}" alt="" height="40" width="50"/></a>
+                    </li>
+    </ul>
+    </nav>
+    
+    </div>
+    {% block body %}
+    <br /> <br /> <br />
+    <!-- select user from here its alternative for login -->
+    <div class="mt-4 container-fluid">
+
+
+                   <h2>  Select Customer from list below</h2>
+                          
+    <form  action="{% url 'index' %}" method="post" accept-charset="utf-8">
+        {% csrf_token %}
+                 <select name='user' class="custom-select">
+  <option selected> select user</option>
+  <option value="s">sanket</option>
+  <option value="r">Ramesh</option>
+  <option value="p">pratik</option>
+</select>
+<div class="text-center ">
+    
+
+        <button  class="btn-primary  btn m-3" type="submit">select</button>
+        </form>
+        </div>
+    </div>
+
+
+
+    <div id="demo" class="bg-dark mb-3 container-fluid" >
+        
+            <div class="text-light text-center">
+                Fresh vegitables
+            </div>
+        
+        <div class="container">
+  <div class="row">
+    <div class=" m-3 col"><div class="card" style="width: 18rem;">
+  <img src="{% static 'p.png' %}" class="card-img-top" height="180" width="50" alt="...">
+  <div id="xyz" class="card-body">
+    <h5 class="card-title">Potatos</h5>
+    <p class="card-text">100 rs (1=1kg).</p>
+    <div id="po"class='gsjaj jskakak'>
+        
+
+    <button  class="btn add btn-primary"> + </button>
+   <span> {{po}} </span>
+     <button class="btn minus btn-primary"> - </button>
+        </div>
+  </div>
+</div>
+</div>
+    <div class=" m-2 col"><div class="card" style="width: 18rem;">
+  <img src="{% static 't.png' %}"  class="card-img-top" height="180" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Tomatos</h5>
+    <p class="card-text">100Rs (1=1kg).</p>
+    <div id="to">
+        
+
+    <button  class="btn add btn-primary"> + </button>
+   <span>{{to}}</span>
+     <button class="btn minus btn-primary"> - </button>
+     
+     </div>
+  </div>
+</div>
+    </div>
+    <div class="w-100"></div>
+    <div class="col m-2"><div class="card" style="width: 18rem;">
+  <img src="{% static 'm.png' %}" class="card-img-top" width="50" height="180"  alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Freah Mashrooms</h5>
+    <p class="card-text">100Rs (1=1kg)</p>
+    <div id="ma">
+        
+    <button class="btn add btn-primary"> + </button>
+        <span>{{ ma }}</span>
+     <button href="#" class="btn minus  btn-primary"> - </button>
+     
+     </div>
+  </div>
+</div>
+    </div>
+    <div class=" m-2 col"><div class="card" style="width: 18rem;">
+  <img src="{% static 's.png' %}" class="card-img-top" width="50" height="180"  alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Fresh Spinach </h5>
+    <p class="card-text">1=1kg</p>
+    <div id="sp">
+        
+    
+    <button class="btn add btn-primary"> + </button>
+    <span>{{ sp}}</span>
+     <button class="btn minus btn-primary"> - </button>
+     
+     </div>
+  </div>
+</div>
+        
+    </div>
+  </div>
+</div>
+    </div>
+{% endblock %}
+
+    <style>
+        .footerlink {
+ 
+            list-style: none;
+        }
+ 
+        .alink {
+            display: block;
+            color: rgba(255, 255, 255, .85);
+            font-size: 16px;
+            text-decoration: none;
+            margin-bottom: 10px;
+        }
+ 
+        ul.footerlink li a,
+        ul.footerlink li a:visited {
+            color: #FFFFFF !important;
+        }
+ 
+        ul.footerlink li a:hover,
+        ul.footerlink li a:active {
+            color: #FFFFFF !important;
+        }
+ 
+        ul.footerlink li.active a {
+            color: #FFFFFF !important;
+        }
+    </style>
+    
+    <!--Start Footer -->
+    <footer style="background-color: #374251">
+        <div class="container contactitem">
+            <div class="row text-center py-2">
+                <div class="col-lg-3">
+                    <a class="navbar-brand nav-name text-light"><img src="{% static 'logoWeb.png' %}" width="50" height="45"> Green Fresh</a></br>
+                
+                </div>
+                <div class="col-lg-2 col-md-6 mt-4 mt-lg-0 pt-4 pl-5">
+                    <ul class="text-left footerlink">
+                        <li>
+                            <a class="alink" routerlink="/" href="/">
+                                <span>Home</span></a>
+                        </li>
+                        <li>
+                            <a class="alink" routerlink="/" href="/Exotic_Veggis.php">
+                                <span>Products</span></a>
+                        </li>
+                        <li>
+                            <a class="alink" routerlink="/" href="/Recipe.php">
+                                <span>Recipe</span></a>
+                        </li>
+                        <li>
+                            <a class="alink" routerlink="/" href="/About-us.php">
+                                <span>About Us</span></a>
+                        </li>
+                        <li>
+                            <a class="alink" routerlink="/" href="/contact-us.php">
+                                <span>Contact Us</span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class=" col-lg-15 pt-4 pl-5">
+                    <ul class="text-left footerlink">
+                        <li>
+                            <a class="alink" href="mailto:info@greeban.com" target="_blank">
+                                <span>Email: info@green.com</span></a>
+                        </li>
+                        <li>
+                            <span class="alink">Mob: +91 96195 23516, +91 98204 39007</span>
+                        </li>
+                        <li>
+                            <a class="alink" routerlink="/privacypolicy.php" href="/privacypolicy.php">
+                                <span>Privacy Policy</span></a>
+                        </li>
+                        <li>
+                            <a class="alink" routerlink="/termsconditions.php" href="/termsconditions.php">
+                                <span>Terms & Conditions</span></a>
+                        </li>
+                        <li>
+                            <a class="alink" routerlink="/returnpolicy.php" href="/returnpolicy.php">
+                                <span>Return Policy</span></a>
+                        </li>
+                    </ul>
+                </div>
+ 
+            </div>
+            <!--- End of Row -->
+            <div class="footer-copyright text-center text-light py-3">Copyright © 2020 | Green Fresh Private Limited </a>
+            </div>
+        </div>
+        <!--- End of Container -->
+    </footer>
+    <!-- end footer-->
+   
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        
+  </body>
+  
+  
+   <script type="text/javascript" charset="utf-8">
+
+$(document).ready(()=>{
+    
+    po={{po}};
+    to={{ to}};
+    ma={{ ma}};
+    sp={{ sp }};
+    vegis={
+        'po':po,
+        'to':to,
+        'ma':ma,
+        'sp':sp,
+    };
+    
+    $(document).on('click','.add',function(){ 
+        var v=$(this).parent().attr('id');
+        vegis[v]=vegis[v]+1;
+          $.ajax({
+    url: "{% url 'cart' %}",
+    cache:'false',
+    data:{'val':vegis[v],
+        'key':v,
+    },
+    dataType: 'text',
+    type:"GET",
+    success: function(data){
+      //alert(data);
+    },
+    error: function(data){
+      alert('error; '+ eval(error));
+    }
+  });
+        $(this).parent().children('span').html(vegis[v]);
+      
+
+                
+                
+   });
+    $('.minus').click(function(){ 
+        
+        var v=$(this).parent().attr('id');
+
+        if (vegis[v]<=0){
+            vegis[v]=0
+        }
+        else{
+        vegis[v]=vegis[v]-1;
+        $.ajax({
+    url: "{% url 'cart' %}",
+    cache:'false',
+    data:{'val':vegis[v],
+        'key':v,
+    },
+    dataType: 'text',
+    type:"GET",
+    success: function(data){
+      //alert(data);
+    },
+    error: function(data){
+      alert('error; '+ eval(error));
+    }
+  });
+        $(this).parent().children('span').html(vegis[v]);
+        }
+        
+    });
+})
+
+    </script>
+<script type="text/javascript" charset="utf-8">
+{% block script %}
+{% endblock %}
+</script>
+</html>
